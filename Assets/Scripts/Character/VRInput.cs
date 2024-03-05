@@ -15,6 +15,5 @@ public class VRInput : MonoBehaviour
     {
         float triggerValue  = inputAction.action.ReadValue<float>();
 
-        Debug.Log(triggerValue);
     }
 }
