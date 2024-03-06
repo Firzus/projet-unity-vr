@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private float _mTimeLeft;
+
+    private float Timer;
+
     public static GameManager Instance; 
 
     void Start()
@@ -14,8 +18,18 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void Quit()
     {
         Quit();
+    }
+
+    public float GetTime()
+    {
+        return _mTimeLeft;
     }
 }
