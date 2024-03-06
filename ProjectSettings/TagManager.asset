@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LeftHand
   - RightHand
+  - PowerObject
   layers:
   - Default
   - TransparentFX
