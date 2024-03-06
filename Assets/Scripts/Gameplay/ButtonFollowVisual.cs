@@ -1,13 +1,12 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class ButtonFollowVisual : MonoBehaviour
 {
     public Transform visualTarget;
-    public Vector3 localAxis;
-    public float resetSpeed = 5f;
-    public float followAngle = 45;
+    [SerializeField] private Vector3 _localAxis;
+    [SerializeField] private float _resetSpeed = 5f;
+    [SerializeField] private float _followAngle = 45;
 
     private bool _freeze = false;
 
@@ -39,9 +38,9 @@ public class ButtonFollowVisual : MonoBehaviour
             _offset = visualTarget.position - _pokeAttachTransform.position;
             _freeze = false;
 
-            float pokeAngle = Vector3.Angle(_offset, visualTarget.TransformDirection(localAxis));
+            float pokeAngle = Vector3.Angle(_offset, visualTarget.TransformDirection(_localAxis));
 
-            if(pokeAngle < followAngle)
+            if(pokeAngle < _followAngle)
             {
                 _isFollowing = true;
                 _freeze = false;
@@ -77,12 +76,12 @@ public class ButtonFollowVisual : MonoBehaviour
         if(_isFollowing)
         {
             Vector3 localTargetPosition = visualTarget.InverseTransformPoint(_pokeAttachTransform.position + _offset);
-            Vector3 constrainedLocalTargetPosition = Vector3.Project(localTargetPosition, localAxis);
+            Vector3 constrainedLocalTargetPosition = Vector3.Project(localTargetPosition, _localAxis);
             visualTarget.position = visualTarget.TransformPoint(constrainedLocalTargetPosition);
         }
         else
         {
-            visualTarget.localPosition = Vector3.Lerp(visualTarget.localPosition, _initialLocalPos, Time.deltaTime * resetSpeed);
+            visualTarget.localPosition = Vector3.Lerp(visualTarget.localPosition, _initialLocalPos, Time.deltaTime * _resetSpeed);
         }
     }
 }
