@@ -2,13 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerRayCasting : MonoBehaviour
+public class OutlineInteractable : MonoBehaviour
 {
     int targetLayer = 6;
 
     private RaycastHit hit;
     private Transform _mHighlight;
-    private Transform _mSelection;
 
     void Update()
     {
@@ -27,7 +26,7 @@ public class PlayerRayCasting : MonoBehaviour
         if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out hit))
         {
             _mHighlight = hit.transform;
-            if (_mHighlight.gameObject.layer == targetLayer && _mHighlight != _mSelection) 
+            if (_mHighlight.gameObject.layer == targetLayer) 
             {
                 if (_mHighlight.gameObject.GetComponent<Outline>() != null) 
                 {
