@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private float _mTimeLeft;
 
-    private float Timer;
+    private float _mTimer;
 
     public static GameManager Instance; 
 
@@ -16,11 +16,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
         else if (Instance != this)
             Destroy(gameObject);
-    }
-
-    private void Update()
-    {
-        
     }
 
     public void Quit()

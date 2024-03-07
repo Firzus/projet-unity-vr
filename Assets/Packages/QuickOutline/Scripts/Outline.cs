@@ -48,8 +48,6 @@ public class Outline : MonoBehaviour {
     }
   }
 
-  //public bool hitted;
-
   [Serializable]
   private class ListVector3 {
     public List<Vector3> data;
