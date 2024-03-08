@@ -26,7 +26,7 @@ public class OutlineInteractable : MonoBehaviour
         if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out _mHit))
         {
             _mHighlight = _mHit.transform;
-            if (_mHighlight.gameObject.layer == _mTargetLayer && _mHighlight.gameObject.GetComponent<XRGrabInteractable>().interactionLayers == 4) 
+            if (_mHighlight.gameObject.layer == _mTargetLayer && _mHighlight.gameObject.GetComponent<XRGrabInteractable>().interactionLayers == 5) 
             {
                 if (_mHighlight.gameObject.GetComponent<Outline>() != null) 
                 {
@@ -51,7 +51,7 @@ public class OutlineInteractable : MonoBehaviour
         {
             if (other.gameObject.GetComponent<Outline>() != null)
             {
-                _mHighlight.gameObject.GetComponent<Outline>().enabled = true;
+                other.gameObject.GetComponent<Outline>().enabled = true;
             }
             else
             {
@@ -59,9 +59,21 @@ public class OutlineInteractable : MonoBehaviour
                 outline.enabled = true;
             }
         }
-        else
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == _mTargetLayer)
         {
-            other = null;
+            if (other.gameObject.GetComponent<Outline>() != null)
+            {
+                other.gameObject.GetComponent<Outline>().enabled = false;
+            }
+            else
+            {
+                Outline outline = other.gameObject.AddComponent<Outline>();
+                outline.enabled = true;
+            }
         }
     }
 }
