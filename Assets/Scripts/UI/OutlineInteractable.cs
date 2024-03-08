@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class OutlineInteractable : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class OutlineInteractable : MonoBehaviour
         if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out _mHit))
         {
             _mHighlight = _mHit.transform;
-            if (_mHighlight.gameObject.layer == _mTargetLayer) 
+            if (_mHighlight.gameObject.layer == _mTargetLayer && _mHighlight.gameObject.GetComponent<XRGrabInteractable>().interactionLayers == 4) 
             {
                 if (_mHighlight.gameObject.GetComponent<Outline>() != null) 
                 {
@@ -41,6 +42,26 @@ public class OutlineInteractable : MonoBehaviour
             {
                 _mHighlight = null;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == _mTargetLayer)
+        {
+            if (other.gameObject.GetComponent<Outline>() != null)
+            {
+                _mHighlight.gameObject.GetComponent<Outline>().enabled = true;
+            }
+            else
+            {
+                Outline outline = other.gameObject.AddComponent<Outline>();
+                outline.enabled = true;
+            }
+        }
+        else
+        {
+            other = null;
         }
     }
 }
