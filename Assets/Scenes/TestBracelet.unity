@@ -635,8 +635,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 6432875173585889034}
   remainingTimeInFloat: 0
-  remainingTimeInInt: 1
-  awake: 0
+  remainingTimeInInt: 0
+  awake: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

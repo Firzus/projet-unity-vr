@@ -14,7 +14,6 @@ public class Countdown : MonoBehaviour
     {
         if (remainingTimeInInt > 0)
             remainingTimeInFloat = remainingTimeInInt * 60;
-        awake = true;
     }
 
     // Update is called once per frame
@@ -59,6 +58,7 @@ public class Countdown : MonoBehaviour
         }
         else if (remainingTimeInFloat == 0)//return nothing if 0
         {
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             return;
         }
         //convert and show the countdown
