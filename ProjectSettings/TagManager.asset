@@ -6,15 +6,16 @@ TagManager:
   tags:
   - LeftHand
   - RightHand
+  - PowerObject
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Body
   - Water
   - UI
   - Interactable
-  - 
+  - Grab Ignore Ray
   - 
   - 
   - 
