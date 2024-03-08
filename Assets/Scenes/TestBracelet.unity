@@ -377,7 +377,7 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: b5a9ecf626d5662468c921eafbc9d8b0, type: 3}
     name: BeepBomb
   musicSource: {fileID: 0}
-  sfxSource: {fileID: 669954537}
+  sfxSource: {fileID: 0}
 --- !u!4 &1816804958
 Transform:
   m_ObjectHideFlags: 0
