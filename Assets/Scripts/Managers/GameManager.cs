@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
     IEnumerator TitleIntro()
     {
         yield return new WaitForSeconds(7);
-        // Create title
         Instantiate(_titlePrefab, new Vector3(0, 6, 30), Quaternion.identity);
     }
 
