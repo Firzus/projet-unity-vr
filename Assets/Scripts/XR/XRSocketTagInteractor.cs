@@ -1,8 +1,9 @@
+using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class XRSocketTagInteractor : XRSocketInteractor
 {
-    public string targetTag;
+    [SerializeField] private string targetTag;
 
     public override bool CanHover(IXRHoverInteractable interactable)
     {
