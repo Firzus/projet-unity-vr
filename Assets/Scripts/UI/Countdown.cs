@@ -17,14 +17,46 @@ public class Countdown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (awake && remainingTime > 0)// Countdown
+        if (!awake)
+        {
+            return;
+        }
+
+        if (!stressed)
+        {
+            CountdownMethod();
+            if (timer == 0)// play bip sound to 60 seconds
+            {
+                Debug.Log("normal bip");
+                BipSound();
+            }
+            if (minutes == 0 && seconds == 30)// pass to stress mode when 30 seconds remaining
+            {
+                stressed = true;
+            }
+        }
+        else
+        {
+            CountdownMethod();
+            StressMode();
+        }
+
+    }
+
+    private void CountdownMethod()
+    {
+        if (remainingTime > 0)// Countdown
         {
             remainingTime -= Time.deltaTime;
         }
-        else if (remainingTime < 0)//when countdown is 0
+        else if (remainingTime < 0)//when countdown is under 0 stop the countdown
         {
             remainingTime = 0;
             Explosion();
+        }
+        else if (remainingTime == 0)//return nothing if 0
+        {
+            return;
         }
         //convert and show the countdown
         minutes = Mathf.FloorToInt(remainingTime / 60);
@@ -32,30 +64,17 @@ public class Countdown : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         timer = seconds;
-
-        if (!stressed && timer == 0)// play bip sound to 60 seconds
-        {
-            BipSound();
-        }
-        if (minutes == 0 && seconds == 30)// pass to stress mode when 30 seconds remaining
-        {
-            stressed = true;
-        }
-        if (stressed)
-        {
-            StressMode();
-        }
-
     }
 
     private void BipSound()
     {
-        Debug.Log("Bip");
+        //Debug.Log("Bip");
     }
     private void StressMode()
     {
-        if (stressed && timer != 0)// bip for each seconds
+        if (timer != 0)// bip for each seconds
         {
+            Debug.Log("stresss bip");
             BipSound();
         }
     }
