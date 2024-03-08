@@ -33,7 +33,6 @@ public class OutlineInteractable : MonoBehaviour
                 if (_mHighlight.gameObject.GetComponent<Outline>() != null) 
                 {
                     _mHighlight.gameObject.GetComponent<Outline>().enabled = true;
-                    Debug.Log("BAU BAU");
                 }
                 else
                 {
