@@ -634,11 +634,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 6432875173585889034}
-  remainingTime: 120
-  minutes: 0
-  seconds: 0
-  timer: 0
-  stressed: 0
+  remainingTimeInFloat: 0
+  remainingTimeInInt: 1
   awake: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

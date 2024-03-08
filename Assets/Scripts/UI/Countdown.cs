@@ -4,13 +4,16 @@ using TMPro;
 public class Countdown : MonoBehaviour
 {
     [SerializeField] private TextMeshPro timerText;
-    [SerializeField] private float remainingTime = 0.0f;
-    [SerializeField] private int minutes = 0, seconds = 0, timer = 0;
-    [SerializeField] private bool stressed = false;
+    [SerializeField] private float remainingTimeInFloat = 0.0f;
+    [SerializeField] private int remainingTimeInInt = 0;
+    private int minutes = 0, seconds = 0, timer = 0;
+    private bool stressed = false;
     public bool awake = false;
 
     void Start()
     {
+        if (remainingTimeInInt > 0)
+            remainingTimeInFloat = remainingTimeInInt * 60;
         awake = true;
     }
 
@@ -25,7 +28,7 @@ public class Countdown : MonoBehaviour
         if (!stressed)
         {
             CountdownMethod();
-            if (timer == 0)// play bip sound to 60 seconds
+            if (timer == 0 && remainingTimeInFloat != 0)// play bip sound to 60 seconds
             {
                 Debug.Log("normal bip");
                 BipSound();
@@ -45,22 +48,22 @@ public class Countdown : MonoBehaviour
 
     private void CountdownMethod()
     {
-        if (remainingTime > 0)// Countdown
+        if (remainingTimeInFloat > 0)// Countdown
         {
-            remainingTime -= Time.deltaTime;
+            remainingTimeInFloat -= Time.deltaTime;
         }
-        else if (remainingTime < 0)//when countdown is under 0 stop the countdown
+        else if (remainingTimeInFloat < 0)//when countdown is under 0 stop the countdown
         {
-            remainingTime = 0;
+            remainingTimeInFloat = 0;
             Explosion();
         }
-        else if (remainingTime == 0)//return nothing if 0
+        else if (remainingTimeInFloat == 0)//return nothing if 0
         {
             return;
         }
         //convert and show the countdown
-        minutes = Mathf.FloorToInt(remainingTime / 60);
-        seconds = Mathf.FloorToInt(remainingTime % 60);
+        minutes = Mathf.FloorToInt(remainingTimeInFloat / 60);
+        seconds = Mathf.FloorToInt(remainingTimeInFloat % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         timer = seconds;
