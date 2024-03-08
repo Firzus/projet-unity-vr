@@ -29,6 +29,6 @@ public class MySceneManager : MonoBehaviour
     IEnumerator GoToSceneRoutine()
     {
         _mFadeScreen.FadeOut();
-        yield return new WaitForSeconds(_mFadeScreen.fadeDuration);
+        yield return new WaitForSeconds(_mFadeScreen.FadeDuration());
     }
 }

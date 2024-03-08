@@ -29,6 +29,11 @@ public class FadeScreen : MonoBehaviour
         StartCoroutine(FadeRoutine(alphaIn, alphaOut));
     }
 
+    public float FadeDuration()
+    {
+        return fadeDuration;
+    }
+
     public IEnumerator FadeRoutine(float alphaIn, float alphaOut)
     {
         float timer = 0;
