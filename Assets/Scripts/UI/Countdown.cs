@@ -4,8 +4,8 @@ using TMPro;
 public class Countdown : MonoBehaviour
 {
     [SerializeField] private TextMeshPro timerText;
-    [SerializeField] private float remainingTimeInFloat = 0.0f;
-    [SerializeField] private int remainingTimeInInt = 0;
+    //[SerializeField] private AudioSource beepSound;
+    [SerializeField] private float remainingTimeInFloat = 0.0f, remainingTimeInInt = 0;
     private int minutes = 0, seconds = 0, timer = 0;
     private bool stressed = false;
     public bool awake = false;
@@ -14,6 +14,7 @@ public class Countdown : MonoBehaviour
     {
         if (remainingTimeInInt > 0)
             remainingTimeInFloat = remainingTimeInInt * 60;
+        //beepSound = transform.GetChild(2).GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,7 +30,6 @@ public class Countdown : MonoBehaviour
             CountdownMethod();
             if (timer == 0 && remainingTimeInFloat != 0)// play bip sound to 60 seconds
             {
-                Debug.Log("normal bip");
                 BipSound();
             }
             if (minutes == 0 && seconds == 30)// pass to stress mode when 30 seconds remaining
@@ -71,15 +71,16 @@ public class Countdown : MonoBehaviour
 
     private void BipSound()
     {
-        //Debug.Log("Bip");
+        //beepSound.Play();
     }
     private void StressMode()
     {
-        if (timer != 0)// bip for each seconds
-        {
-            Debug.Log("stresss bip");
-            BipSound();
-        }
+        // if (timer != 0)// bip for each seconds
+        // {
+        //     BipSound();
+            
+        // }
+        //beepSound.loop = true;
     }
 
     private void Explosion()
