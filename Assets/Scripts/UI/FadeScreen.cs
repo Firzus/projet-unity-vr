@@ -3,16 +3,15 @@ using UnityEngine;
 
 public class FadeScreen : MonoBehaviour
 {
-    public bool fadeOnStart = true;
-    public float fadeDuration = 2;
-    public Color fadeColor;
+    [SerializeField] private bool fadeOnStart = true;
+    [SerializeField] private float fadeDuration = 2;
+    [SerializeField] private Color fadeColor;
     private Renderer _mRend;
 
     private void Start()
     {
         _mRend = GetComponent<Renderer>();
-        if (fadeOnStart)
-            FadeIn();
+        if (fadeOnStart) FadeIn();
     }
 
     public void FadeIn()
