@@ -16,7 +16,7 @@ public class OutlineInteractable : MonoBehaviour
 
     void Outlining()
     {
-        if (_mHighlight != null)
+        if (_mHighlight != null) 
         {
             _mHighlight.gameObject.GetComponent<Outline>().enabled = false;
             _mHighlight = null;
@@ -26,9 +26,11 @@ public class OutlineInteractable : MonoBehaviour
         if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out _mHit))
         {
             _mHighlight = _mHit.transform;
-            if (_mHighlight.gameObject.layer == _mTargetLayer && _mHighlight.gameObject.GetComponent<XRGrabInteractable>().interactionLayers == 5)
+            if (_mHighlight.gameObject.layer == _mTargetLayer && 
+                _mHighlight.gameObject.GetComponent<XRGrabInteractable>().interactionLayers == InteractionLayerMask.GetMask("ray interaction") ||
+                _mHighlight.gameObject.GetComponent<XRGrabInteractable>().interactionLayers == InteractionLayerMask.GetMask("ray interaction", "direct interaction")) 
             {
-                if (_mHighlight.gameObject.GetComponent<Outline>() != null)
+                if (_mHighlight.gameObject.GetComponent<Outline>() != null) 
                 {
                     _mHighlight.gameObject.GetComponent<Outline>().enabled = true;
                 }
@@ -47,7 +49,7 @@ public class OutlineInteractable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == _mTargetLayer)
+        if (other.gameObject.layer == _mTargetLayer && _mHighlight.gameObject.GetComponent<XRGrabInteractable>().interactionLayers == InteractionLayerMask.GetMask("direct interaction"))
         {
             if (other.gameObject.GetComponent<Outline>() != null)
             {
@@ -63,7 +65,7 @@ public class OutlineInteractable : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == _mTargetLayer)
+        if (other.gameObject.layer == _mTargetLayer && _mHighlight.gameObject.GetComponent<XRGrabInteractable>().interactionLayers == InteractionLayerMask.GetMask("direct interaction"))
         {
             if (other.gameObject.GetComponent<Outline>() != null)
             {
