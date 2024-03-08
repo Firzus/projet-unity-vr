@@ -3347,18 +3347,6 @@ MonoBehaviour:
           m_StringArgument: Level
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuUIManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1061737064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8193,6 +8181,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019497676840563142, guid: 412004ae33a347745b705f6da3517e68,
+        type: 3}
+      propertyPath: fadeColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019497676840563142, guid: 412004ae33a347745b705f6da3517e68,
+        type: 3}
+      propertyPath: fadeColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019497676840563142, guid: 412004ae33a347745b705f6da3517e68,
+        type: 3}
+      propertyPath: fadeColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019497676840563142, guid: 412004ae33a347745b705f6da3517e68,
+        type: 3}
+      propertyPath: fadeColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8534049746909205598, guid: 412004ae33a347745b705f6da3517e68,
         type: 3}
