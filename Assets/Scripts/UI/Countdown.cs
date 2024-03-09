@@ -1,20 +1,26 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class Countdown : MonoBehaviour
 {
     [SerializeField] private TextMeshPro timerText;
-    //[SerializeField] private AudioSource beepSound;
-    [SerializeField] private float remainingTimeInFloat = 0.0f, remainingTimeInInt = 0;
+    [SerializeField] private AudioSource beepSound;
+    [SerializeField] private float remainingTimeInSeconds = 0.0f;
+    [SerializeField] private int remainingTimeInMinutes = 0;
+    [SerializeField] private int enterStressModeInSeconds = 0, enterStressModeInMinutes = 0;
+
+    private IEnumerator sfx;
     private int minutes = 0, seconds = 0, timer = 0;
-    private bool stressed = false;
+    private bool stressed = false, isPlayingSFXSound = false;
     public bool awake = false;
 
     void Start()
     {
-        if (remainingTimeInInt > 0)
-            remainingTimeInFloat = remainingTimeInInt * 60;
-        //beepSound = transform.GetChild(2).GetComponent<AudioSource>();
+        if (remainingTimeInMinutes > 0)
+            remainingTimeInSeconds = remainingTimeInMinutes * 60;
+        beepSound = transform.GetChild(2).GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,15 +30,15 @@ public class Countdown : MonoBehaviour
         {
             return;
         }
-
+        sfx = SfxSound(1.0f);
         if (!stressed)
         {
             CountdownMethod();
-            if (timer == 0 && remainingTimeInFloat != 0)// play bip sound to 60 seconds
+            if (timer == 0 && remainingTimeInSeconds != 0 && !isPlayingSFXSound)// play bip sound to 60 seconds
             {
-                BipSound();
+                StartCoroutine(sfx);
             }
-            if (minutes == 0 && seconds == 30)// pass to stress mode when 30 seconds remaining
+            if (minutes == enterStressModeInMinutes && seconds == enterStressModeInSeconds)// pass to stress mode
             {
                 stressed = true;
             }
@@ -47,23 +53,24 @@ public class Countdown : MonoBehaviour
 
     private void CountdownMethod()
     {
-        if (remainingTimeInFloat > 0)// Countdown
+        if (remainingTimeInSeconds > 0)// Countdown
         {
-            remainingTimeInFloat -= Time.deltaTime;
+            remainingTimeInSeconds -= Time.deltaTime;
         }
-        else if (remainingTimeInFloat < 0)//when countdown is under 0 stop the countdown
+        else if (remainingTimeInSeconds < 0)//when countdown is under 0 stop the countdown
         {
-            remainingTimeInFloat = 0;
+            remainingTimeInSeconds = 0;
             Explosion();
         }
-        else if (remainingTimeInFloat == 0)//return nothing if 0
+        else if (remainingTimeInSeconds == 0)//return nothing if 0
         {
+            remainingTimeInSeconds = 0;
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             return;
         }
         //convert and show the countdown
-        minutes = Mathf.FloorToInt(remainingTimeInFloat / 60);
-        seconds = Mathf.FloorToInt(remainingTimeInFloat % 60);
+        minutes = Mathf.FloorToInt(remainingTimeInSeconds / 60);
+        seconds = Mathf.FloorToInt(remainingTimeInSeconds % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         timer = seconds;
@@ -71,15 +78,14 @@ public class Countdown : MonoBehaviour
 
     private void BipSound()
     {
-        //beepSound.Play();
+        beepSound.Play();
     }
     private void StressMode()
     {
-        // if (timer != 0)// bip for each seconds
-        // {
-        //     BipSound();
-            
-        // }
+        if (timer != 0 && !isPlayingSFXSound)// bip for each seconds
+        {
+            StartCoroutine(sfx);
+        }
         //beepSound.loop = true;
     }
 
@@ -89,5 +95,14 @@ public class Countdown : MonoBehaviour
         //desactivate input
         //return to the menu
         Debug.Log("explosion");
+    }
+
+    IEnumerator SfxSound(float time)
+    {
+        isPlayingSFXSound = true;
+        yield return new WaitForSeconds(time);
+        BipSound();
+        isPlayingSFXSound = default;
+        StopCoroutine(sfx);
     }
 }
