@@ -763,11 +763,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 6432875173585889034}
-  beepSound: {fileID: 669954537}
-  remainingTimeInSeconds: 100
+  beepSound: {fileID: 0}
+  remainingTimeInSeconds: 20
   remainingTimeInMinutes: 0
-  enterStressModeInSeconds: 30
-  enterStressModeInMinutes: 1
+  enterStressModeInSeconds: 10
+  enterStressModeInMinutes: 0
   awake: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
