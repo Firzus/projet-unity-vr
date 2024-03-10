@@ -1,22 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ActivateTeleportationRay : MonoBehaviour
 {
-    public GameObject leftTeleportation;
-    public GameObject rightTeleportation;
+    [SerializeField] private  GameObject leftHand, teleportationRay;
 
-    public InputActionProperty leftActivate;
-    public InputActionProperty rightActivate;
+    [SerializeField]private InputActionProperty leftActivate;
 
-    public InputActionProperty leftCancel;
-    public InputActionProperty rightCancel;
+
+    void Start()
+    {
+        
+    }
 
     void Update()
     {
-        leftTeleportation.SetActive(leftCancel.action.ReadValue<float>() == 0 && leftActivate.action.ReadValue<float>() > 0.1f);
-        rightTeleportation.SetActive(rightCancel.action.ReadValue<float>() == 0 && rightActivate.action.ReadValue<float>() > 0.1f);
+        if (leftActivate.action.ReadValue<float>() > 0.1f)
+        {
+            teleportationRay.SetActive(true);
+        }
+        else
+        {
+            teleportationRay.SetActive(false);
+        }
     }
 }
