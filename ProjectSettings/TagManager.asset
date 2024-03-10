@@ -8,6 +8,7 @@ TagManager:
   - RightHand
   - PowerObject
   - Key
+  - Pile
   layers:
   - Default
   - TransparentFX
