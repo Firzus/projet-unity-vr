@@ -21,9 +21,10 @@ public class Countdown : MonoBehaviour
 
     void Start()
     {
+        _timerText = transform.GetChild(1).GetComponent<TextMeshPro>();
+        _audioSource = transform.GetChild(2).GetComponent<AudioSource>();
         if (_remainingTimeInMinutes > 0)
             _remainingTimeInSeconds = _remainingTimeInMinutes * 60;
-        _audioSource = transform.GetChild(2).GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -62,7 +63,7 @@ public class Countdown : MonoBehaviour
         }
         if (_remainingTimeInSeconds < 0)//when countdown is under 0 stop the countdown
         {
-            _sfx = Explosion(2.0f);
+            _sfx = Explosion(1.0f);
             StartCoroutine(_sfx);
             _remainingTimeInSeconds = 0;
         }
@@ -106,6 +107,8 @@ public class Countdown : MonoBehaviour
         _audioSource = transform.GetChild(3).GetComponent<AudioSource>();
         _audioSource.Play();
         _isPlayingSFXSound = false;
+        
+        yield return new WaitForSeconds(time);
         //Destroyi all of the child
         if (gameObject.transform.childCount != 0)
         {
@@ -114,7 +117,6 @@ public class Countdown : MonoBehaviour
                 Destroy(gameObject.transform.GetChild(i).gameObject);
             }
         }
-        yield return new WaitForSeconds(time);
         SceneManager.LoadScene(0);
         StopCoroutine(_sfx);
     }
