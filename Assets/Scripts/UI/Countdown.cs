@@ -1,14 +1,18 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class Countdown : MonoBehaviour
 {
     [SerializeField] private TextMeshPro _timerText;
-    [SerializeField] private AudioSource _beepSound;
+    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private float _remainingTimeInSeconds = 0.0f;
     [SerializeField] private int _remainingTimeInMinutes = 0;
     [SerializeField] private int _enterStressModeInSeconds = 0, _enterStressModeInMinutes = 0;
+    [SerializeField] private InputActionProperty[] _inputAction;
 
     private IEnumerator _sfx;
     private int _minutes = 0, _seconds = 0, _timer = 0;
@@ -19,7 +23,7 @@ public class Countdown : MonoBehaviour
     {
         if (_remainingTimeInMinutes > 0)
             _remainingTimeInSeconds = _remainingTimeInMinutes * 60;
-        _beepSound = transform.GetChild(2).GetComponent<AudioSource>();
+        _audioSource = transform.GetChild(2).GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,7 +33,7 @@ public class Countdown : MonoBehaviour
         {
             return;
         }
-        _sfx = SfxSound(1.0f);
+        _sfx = BipSound(1.0f);
         if (!_stressed)
         {
             CountdownMethod();
@@ -56,14 +60,14 @@ public class Countdown : MonoBehaviour
         {
             _remainingTimeInSeconds -= Time.deltaTime;
         }
-        else if (_remainingTimeInSeconds < 0)//when countdown is under 0 stop the countdown
+        if (_remainingTimeInSeconds < 0)//when countdown is under 0 stop the countdown
         {
+            _sfx = Explosion(2.0f);
+            StartCoroutine(_sfx);
             _remainingTimeInSeconds = 0;
-            Explosion();
         }
-        else if (_remainingTimeInSeconds == 0)//return nothing if 0
+        if (_remainingTimeInSeconds == 0)//return nothing if 0
         {
-            _remainingTimeInSeconds = 0;
             _timerText.text = string.Format("{0:00}:{1:00}", _minutes, _seconds);
             return;
         }
@@ -74,11 +78,6 @@ public class Countdown : MonoBehaviour
 
         _timer = _seconds;
     }
-
-    private void BipSound()
-    {
-        _beepSound.Play();
-    }
     private void StressMode()
     {
         if (_timer != 0 && !_isPlayingSFXSound)// bip for each seconds
@@ -88,19 +87,43 @@ public class Countdown : MonoBehaviour
         //beepSound.loop = true;
     }
 
-    private void Explosion()
+    private IEnumerator Explosion(float time)
     {
         //play animation
         //desactivate input
         //return to the menu
-        Debug.Log("explosion");
+
+        //disable input of player
+        if (_inputAction != null)
+        {
+            for (int i = 0; i < _inputAction.Length; i++)
+            {
+                _inputAction[i].action.Disable();
+            }
+        }
+
+        _isPlayingSFXSound = true;
+        _audioSource = transform.GetChild(3).GetComponent<AudioSource>();
+        _audioSource.Play();
+        _isPlayingSFXSound = false;
+        //Destroyi all of the child
+        if (gameObject.transform.childCount != 0)
+        {
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                Destroy(gameObject.transform.GetChild(i).gameObject);
+            }
+        }
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(0);
+        StopCoroutine(_sfx);
     }
 
-    IEnumerator SfxSound(float time)
+    private IEnumerator BipSound(float time)
     {
         _isPlayingSFXSound = true;
         yield return new WaitForSeconds(time);
-        BipSound();
+        _audioSource.Play();
         _isPlayingSFXSound = default;
         StopCoroutine(_sfx);
     }
