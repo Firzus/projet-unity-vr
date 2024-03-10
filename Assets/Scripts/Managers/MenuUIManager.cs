@@ -4,7 +4,7 @@ public class MenuUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject _mHomePage;
     [SerializeField] private GameObject _mSettings;
-    public string SceneName;
+    private string SceneName;
 
     public void UIActive(GameObject UI)
     {
