@@ -762,13 +762,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3119a84b6e6b4e244b69124081c421bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 6432875173585889034}
-  beepSound: {fileID: 0}
-  remainingTimeInSeconds: 20
-  remainingTimeInMinutes: 0
-  enterStressModeInSeconds: 10
-  enterStressModeInMinutes: 0
-  awake: 1
+  _timerText: {fileID: 6432875173585889034}
+  _beepSound: {fileID: 0}
+  _remainingTimeInSeconds: 20
+  _remainingTimeInMinutes: 0
+  _enterStressModeInSeconds: 10
+  _enterStressModeInMinutes: 0
+  Awake: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
