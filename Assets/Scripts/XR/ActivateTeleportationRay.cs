@@ -3,25 +3,18 @@ using UnityEngine.InputSystem;
 
 public class ActivateTeleportationRay : MonoBehaviour
 {
-    [SerializeField] private  GameObject teleportationRay;
-
-    [SerializeField]private InputActionProperty leftActivate;
-
-
-    void Start()
-    {
-        
-    }
+    [SerializeField] private  GameObject _teleportationRay;
+    [SerializeField] private InputActionProperty _leftActivate;
 
     void Update()
     {
-        if (leftActivate.action.ReadValue<float>() > 0.1f)
+        if (_leftActivate.action.ReadValue<float>() > 0.1f)
         {
-            teleportationRay.SetActive(true);
+            _teleportationRay.SetActive(true);
         }
         else
         {
-            teleportationRay.SetActive(false);
+            _teleportationRay.SetActive(false);
         }
     }
 }
