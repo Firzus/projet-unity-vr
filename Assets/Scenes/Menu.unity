@@ -3632,7 +3632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1664491476}
   m_Layer: 0
-  m_Name: ----LIGHTNING------------------------------------------------------------------------------------------------
+  m_Name: ----LIGHTNING-------------------------------------------------------------------------------------------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4181,9 +4181,9 @@ MonoBehaviour:
   musicSounds:
   - clip: {fileID: 8300000, guid: 2b120d20a936f8d46ad21d965a41a4ce, type: 3}
     name: MenuTheme
-  - clip: {fileID: 8300000, guid: ea8b92a41d1e92449bdd1ac8ad9e039f, type: 3}
+  - clip: {fileID: 8300000, guid: e7ea9bf81399e25489e20006836e5580, type: 3}
     name: GameTheme1
-  - clip: {fileID: 8300000, guid: 3785c656491a26d41a63c13910be8465, type: 3}
+  - clip: {fileID: 8300000, guid: ae3b7f507a5d36844bc784bdc9ffbdb1, type: 3}
     name: GameTheme2
   sfxSounds:
   - clip: {fileID: 8300000, guid: 6174b9592631d1f43bab4a0d51b27d04, type: 3}

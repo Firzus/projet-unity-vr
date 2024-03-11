@@ -311,7 +311,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _apparitionMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 6f0638057aee9b5428d3fc9c6ee7ee51, type: 2}
+      objectReference: {fileID: 2100000, guid: e6af266a0ee7dfd42bdd7f13a25e4196, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
