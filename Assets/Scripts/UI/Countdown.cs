@@ -115,13 +115,6 @@ public class Countdown : MonoBehaviour
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
 
         SceneManager.LoadScene(0);
-        // if (_inputAction != null)
-        // {
-        //     for (int i = 0; i < _inputAction.Length; i++)
-        //     {
-        //         _inputAction[i].action.Enable();
-        //     }
-        // }
         StopCoroutine(_sfx);
     }
 
