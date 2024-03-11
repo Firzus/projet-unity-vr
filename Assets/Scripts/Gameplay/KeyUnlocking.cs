@@ -9,6 +9,7 @@ public class KeyUnlocking : MonoBehaviour
         if(collider.gameObject.CompareTag("Key"))
         {
             _targetDoor.GetComponent<DoorLock>().UnlockDoor();
+            AudioManager.Instance.PlaySFX("DoorUnlocking");
             Destroy(collider.gameObject);
         }
     }
