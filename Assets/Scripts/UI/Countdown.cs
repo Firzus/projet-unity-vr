@@ -15,7 +15,8 @@ public class Countdown : MonoBehaviour
     private IEnumerator _sfx;
     private int _minutes = 0, _seconds = 0, _timer = 0;
     private bool _stressed = false, _isPlayingSFXSound = false;
-    public bool Awake = false;
+
+    public bool Awake { get; set; }
 
     void Start()
     {
