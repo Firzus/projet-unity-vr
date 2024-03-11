@@ -2,13 +2,11 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.InputSystem;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class Countdown : MonoBehaviour
 {
     [SerializeField] private TextMeshPro _timerText;
-    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private float _remainingTimeInSeconds = 0.0f;
     [SerializeField] private int _remainingTimeInMinutes = 0;
     [SerializeField] private int _enterStressModeInSeconds = 0, _enterStressModeInMinutes = 0;
@@ -22,7 +20,6 @@ public class Countdown : MonoBehaviour
     void Start()
     {
         _timerText = transform.GetChild(1).GetComponent<TextMeshPro>();
-        _audioSource = transform.GetChild(2).GetComponent<AudioSource>();
         if (_remainingTimeInMinutes > 0)
             _remainingTimeInSeconds = _remainingTimeInMinutes * 60;
     }
@@ -85,7 +82,6 @@ public class Countdown : MonoBehaviour
         {
             StartCoroutine(_sfx);
         }
-        //beepSound.loop = true;
     }
 
     private IEnumerator Explosion(float time)
@@ -104,12 +100,11 @@ public class Countdown : MonoBehaviour
         }
 
         _isPlayingSFXSound = true;
-        _audioSource = transform.GetChild(3).GetComponent<AudioSource>();
-        _audioSource.Play();
+        AudioManager.Instance.PlaySFX("Explosion");
         _isPlayingSFXSound = false;
 
         yield return new WaitForSeconds(time);
-        //Destroyi all of the child
+        //Destroy all of the child
 
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
@@ -122,7 +117,7 @@ public class Countdown : MonoBehaviour
     {
         _isPlayingSFXSound = true;
         yield return new WaitForSeconds(time);
-        _audioSource.Play();
+        AudioManager.Instance.PlaySFX("BeepSound");
         _isPlayingSFXSound = default;
         StopCoroutine(_sfx);
     }
