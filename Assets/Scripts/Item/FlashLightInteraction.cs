@@ -39,6 +39,7 @@ public class FlashLightInteraction : MonoBehaviour
             _light.SetActive(true);
         }
 
+        AudioManager.Instance.PlaySFX("ToggleFlashlight");
         yield return new WaitForSeconds(refreshTime);
     }
 
@@ -63,7 +64,8 @@ public class FlashLightInteraction : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Pile"))
         {
-            _power += 50;
+            _power += 30;
+            AudioManager.Instance.PlaySFX("Click");
             Destroy(collision.gameObject);
         }
     }
