@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class ActivateTeleportationRay : MonoBehaviour
 {
-    [SerializeField] private  GameObject leftHand, teleportationRay;
+    [SerializeField] private  GameObject teleportationRay;
 
     [SerializeField]private InputActionProperty leftActivate;
 
