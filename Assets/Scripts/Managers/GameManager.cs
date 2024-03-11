@@ -1,11 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float _mTimeLeft;
     public static GameManager Instance { get; private set; }
-    private float _mTimer;
 
     // UI
     [SerializeField] private GameObject _titlePrefab;
@@ -51,5 +51,28 @@ public class GameManager : MonoBehaviour
     public float GetTime()
     {
         return _mTimeLeft;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LoadNextScene();
+        }
+    }
+
+    private void LoadNextScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
