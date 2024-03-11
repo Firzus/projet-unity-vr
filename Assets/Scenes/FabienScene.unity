@@ -3134,11 +3134,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timerText: {fileID: 4286615265845289604}
   _audioSource: {fileID: 0}
-  _remainingTimeInSeconds: 20
+  _remainingTimeInSeconds: 10
   _remainingTimeInMinutes: 0
-  _enterStressModeInSeconds: 10
+  _enterStressModeInSeconds: 5
   _enterStressModeInMinutes: 0
-  _inputAction: []
+  _inputAction:
+  - m_UseReference: 1
+    m_Action:
+      m_Name: Element 0
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 76d4429e-c9f9-423e-b55d-54532901ab9d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  - m_UseReference: 1
+    m_Action:
+      m_Name: Element 0
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 76d4429e-c9f9-423e-b55d-54532901ab9d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  - m_UseReference: 1
+    m_Action:
+      m_Name: Element 0
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 76d4429e-c9f9-423e-b55d-54532901ab9d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   Awake: 1
 --- !u!23 &1112684330852779554
 MeshRenderer:

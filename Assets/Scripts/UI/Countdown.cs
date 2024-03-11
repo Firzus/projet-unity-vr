@@ -42,7 +42,7 @@ public class Countdown : MonoBehaviour
             {
                 StartCoroutine(_sfx);
             }
-            if (_minutes == _enterStressModeInMinutes && _seconds == _enterStressModeInSeconds)// pass to stress mode
+            if (_minutes == _enterStressModeInMinutes && _seconds == _enterStressModeInSeconds + 1)// pass to stress mode
             {
                 _stressed = true;
             }
@@ -63,7 +63,7 @@ public class Countdown : MonoBehaviour
         }
         if (_remainingTimeInSeconds < 0)//when countdown is under 0 stop the countdown
         {
-            _sfx = Explosion(1.0f);
+            _sfx = Explosion(5.0f);
             StartCoroutine(_sfx);
             _remainingTimeInSeconds = 0;
         }
@@ -107,17 +107,21 @@ public class Countdown : MonoBehaviour
         _audioSource = transform.GetChild(3).GetComponent<AudioSource>();
         _audioSource.Play();
         _isPlayingSFXSound = false;
-        
+
         yield return new WaitForSeconds(time);
         //Destroyi all of the child
-        if (gameObject.transform.childCount != 0)
-        {
-            for (int i = 0; i < gameObject.transform.childCount; i++)
-            {
-                Destroy(gameObject.transform.GetChild(i).gameObject);
-            }
-        }
+
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        gameObject.transform.GetChild(1).gameObject.SetActive(false);
+
         SceneManager.LoadScene(0);
+        // if (_inputAction != null)
+        // {
+        //     for (int i = 0; i < _inputAction.Length; i++)
+        //     {
+        //         _inputAction[i].action.Enable();
+        //     }
+        // }
         StopCoroutine(_sfx);
     }
 
