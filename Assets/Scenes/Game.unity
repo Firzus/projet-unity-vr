@@ -2795,17 +2795,17 @@ PrefabInstance:
     - target: {fileID: 7831682366969855955, guid: 5a12e3179de9de14a8542eb919fc7a98,
         type: 3}
       propertyPath: _remainingTimeInMinutes
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7831682366969855955, guid: 5a12e3179de9de14a8542eb919fc7a98,
         type: 3}
       propertyPath: _remainingTimeInSeconds
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7831682366969855955, guid: 5a12e3179de9de14a8542eb919fc7a98,
         type: 3}
       propertyPath: _enterStressModeInSeconds
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7831682366969855955, guid: 5a12e3179de9de14a8542eb919fc7a98,
         type: 3}
