@@ -9,7 +9,7 @@ public class FlashLightInteraction : MonoBehaviour
     [SerializeField] private int _power = 100;
     void Start()
     {
-        if(!_light)
+        if(!_isOn)
         {
             _light.SetActive(false);
         }
@@ -29,15 +29,17 @@ public class FlashLightInteraction : MonoBehaviour
     {
         if (_isOn || _power <= 0)
         {
+
             _isOn = false;
             _light.SetActive(false);
         }
-        else if (!_isOn && _power > 0) { }
+        else if(!_isOn && _power > 0)
         {
             _isOn = true;
             _light.SetActive(true);
         }
 
+        AudioManager.Instance.PlaySFX("ToggleFlashlight");
         yield return new WaitForSeconds(refreshTime);
     }
 
@@ -46,6 +48,13 @@ public class FlashLightInteraction : MonoBehaviour
         if(_isOn && _power > 0)
         {
             _power--;
+
+            if(_power <= 0)
+            {
+
+                _isOn = false;
+                _light.SetActive(false);
+            }
         }
         yield return new WaitForSeconds(3f);
         StartCoroutine(FlashlightDurability());
@@ -55,7 +64,8 @@ public class FlashLightInteraction : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Pile"))
         {
-            _power = 100;
+            _power += 30;
+            AudioManager.Instance.PlaySFX("Click");
             Destroy(collision.gameObject);
         }
     }
