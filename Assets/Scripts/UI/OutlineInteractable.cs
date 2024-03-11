@@ -74,7 +74,7 @@ public class OutlineInteractable : MonoBehaviour
             else
             {
                 Outline outline = other.gameObject.AddComponent<Outline>();
-                outline.enabled = true;
+                outline.enabled = false;
             }
         }
     }
