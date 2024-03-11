@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7625264738541460642}
   - component: {fileID: 4569751838831552674}
   - component: {fileID: 7111719848625807630}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pile
   m_TagString: Pile
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 3476980499940265417}
   - component: {fileID: 895755100170838477}
   - component: {fileID: 3612595505346711536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pile_haut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 7724230668618044640}
   - component: {fileID: 7838107077311753306}
   - component: {fileID: 3650056834865563386}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pile_metal_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 3987675751327151721}
   - component: {fileID: 6092385007152192237}
   - component: {fileID: 1580685352636722270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pile_bas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 3783916476582173475}
   - component: {fileID: 1217925666669100841}
   - component: {fileID: 5284257875509336576}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pile_metal_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
