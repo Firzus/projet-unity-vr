@@ -11,7 +11,7 @@ public class ConsoleIntro : MonoBehaviour
 
     private Material _defaultMaterial;
 
-    private void Start()
+    private void Awake()
     {
         _defaultMaterial = _objectRenderer.material;
         _objectRenderer.material = _appearMaterial;
