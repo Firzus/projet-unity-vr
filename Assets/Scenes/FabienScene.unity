@@ -2063,15 +2063,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754bd16bf782754489097f421c66250c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHand: {fileID: 0}
-  teleportationRay: {fileID: 2812894777819689951}
-  leftActivate:
+  _teleportationRay: {fileID: 2812894777819689951}
+  _leftActivate:
     m_UseReference: 1
     m_Action:
       m_Name: Left Activate
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 9f3e6a6e-815e-4608-a298-026077b01bed
+      m_Id: 28274295-5003-42e6-852b-64c58121728c
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -3148,62 +3147,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &1050620341237680009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1467485865829376339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3119a84b6e6b4e244b69124081c421bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timerText: {fileID: 4286615265845289604}
-  _audioSource: {fileID: 0}
-  _remainingTimeInSeconds: 10
-  _remainingTimeInMinutes: 0
-  _enterStressModeInSeconds: 5
-  _enterStressModeInMinutes: 0
-  _inputAction:
-  - m_UseReference: 1
-    m_Action:
-      m_Name: Element 0
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 76d4429e-c9f9-423e-b55d-54532901ab9d
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
-  - m_UseReference: 1
-    m_Action:
-      m_Name: Element 0
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 76d4429e-c9f9-423e-b55d-54532901ab9d
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
-  - m_UseReference: 1
-    m_Action:
-      m_Name: Element 0
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 76d4429e-c9f9-423e-b55d-54532901ab9d
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
-  Awake: 1
 --- !u!23 &1112684330852779554
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3319,7 +3262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6044725455485373735}
-  - component: {fileID: 1050620341237680009}
+  - component: {fileID: 6044725455485373736}
   m_Layer: 0
   m_Name: Bracelet
   m_TagString: Untagged
@@ -4424,6 +4367,62 @@ Transform:
   - {fileID: 2051923900131783693}
   m_Father: {fileID: 2724340970073437312}
   m_LocalEulerAnglesHint: {x: 10, y: 90, z: 90}
+--- !u!114 &6044725455485373736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467485865829376339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3119a84b6e6b4e244b69124081c421bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timerText: {fileID: 0}
+  _audioSource: {fileID: 0}
+  _remainingTimeInSeconds: 10
+  _remainingTimeInMinutes: 0
+  _enterStressModeInSeconds: 5
+  _enterStressModeInMinutes: 0
+  _inputAction:
+  - m_UseReference: 1
+    m_Action:
+      m_Name: Element 0
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 91b47622-78e9-436b-995c-ff975c83404d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  - m_UseReference: 1
+    m_Action:
+      m_Name: Element 0
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 91b47622-78e9-436b-995c-ff975c83404d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  - m_UseReference: 1
+    m_Action:
+      m_Name: Element 0
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 91b47622-78e9-436b-995c-ff975c83404d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  Awake: 1
 --- !u!1 &6455019077674093938
 GameObject:
   m_ObjectHideFlags: 0
