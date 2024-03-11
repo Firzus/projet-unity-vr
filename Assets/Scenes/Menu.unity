@@ -4188,12 +4188,16 @@ MonoBehaviour:
   sfxSounds:
   - clip: {fileID: 8300000, guid: 6174b9592631d1f43bab4a0d51b27d04, type: 3}
     name: Click
-  - clip: {fileID: 8300000, guid: 58d50db1b683382428724b3f0bed97dd, type: 3}
-    name: ToggleLamp
+  - clip: {fileID: 8300000, guid: 585aab94a93bd4742ab309ebb304ca14, type: 3}
+    name: ToggleFlashlight
   - clip: {fileID: 8300000, guid: b5a9ecf626d5662468c921eafbc9d8b0, type: 3}
     name: BeepSound
   - clip: {fileID: 8300000, guid: 96c73bb4c36627c4aa7d507e386001f5, type: 3}
     name: Explosion
+  - clip: {fileID: 8300000, guid: 7bdfbbc1730d8594a91ad0fe4da52ad6, type: 3}
+    name: DoorUnlocking
+  - clip: {fileID: 8300000, guid: eb014a21d32b79d4996511fe02fc15df, type: 3}
+    name: DoorLocked
   musicSource: {fileID: 641704012}
   sfxSource: {fileID: 862173264}
 --- !u!1001 &2135188618
