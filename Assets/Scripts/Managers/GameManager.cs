@@ -5,13 +5,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float _mTimeLeft;
+    [SerializeField] private GameObject _console;
+    [SerializeField] private GameObject _title;
+
     public static GameManager Instance { get; private set; }
 
-    // UI
-    [SerializeField] private GameObject _titlePrefab;
-    [SerializeField] private GameObject _consolePrefab;
-
-    private void Awake()
+    void Awake()
     {
         DontDestroyOnLoad(this);
 
@@ -26,6 +25,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        _title.SetActive(false);
+        _console.SetActive(false);
+
+        StartCoroutine(MusicIntro());
+        StartCoroutine(TitleIntro());
+        StartCoroutine(ConsoleIntro());
+    }
+
     IEnumerator MusicIntro()
     {
         yield return new WaitForSeconds(5);
@@ -35,33 +44,29 @@ public class GameManager : MonoBehaviour
     IEnumerator TitleIntro()
     {
         yield return new WaitForSeconds(7);
-        Instantiate(_titlePrefab, new Vector3(0, 6, 30), Quaternion.identity);
+        _title.SetActive(true);
     }
 
     IEnumerator ConsoleIntro()
     {
-        yield return new WaitForSeconds(7);
-        Instantiate(_consolePrefab, new Vector3(0, 0, 1), Quaternion.identity);
+        yield return new WaitForSeconds(13);
+
+        AudioManager.Instance.PlaySFX("Appear");
+
+        _console.SetActive(true);
     }
 
-    private void Start()
-    {
-        StartCoroutine(MusicIntro());
-        StartCoroutine(TitleIntro());
-        StartCoroutine(ConsoleIntro());
-    }
-
-    public void Quit()
+    void Quit()
     {
         Application.Quit();
     }
 
-    public float GetTime()
+    float GetTime()
     {
         return _mTimeLeft;
     }
 
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -69,7 +74,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void LoadNextScene()
+    void LoadNextScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
