@@ -4,7 +4,7 @@ public class MenuUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject _mHomePage;
     [SerializeField] private GameObject _mSettings;
-    private string SceneName;
+    private string _sceneName;
 
     public void UIActive(GameObject UI)
     {
@@ -23,7 +23,7 @@ public class MenuUIManager : MonoBehaviour
 
     public void SetScene(string name)
     {
-        SceneName = name;
-        MySceneManager.Instance.ChangeScene(SceneName);
+        _sceneName = name;
+        MySceneManager.Instance.ChangeScene(_sceneName);
     }
 }
