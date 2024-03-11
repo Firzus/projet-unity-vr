@@ -4,9 +4,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class OutlineInteractable : MonoBehaviour
 {
-    private int _mTargetLayer = 6;
-    private RaycastHit _mHit;
     [SerializeField] private Transform _mHighlight;
+    private RaycastHit _mHit;
+    private int _mTargetLayer = 6;
 
     void Update()
     {

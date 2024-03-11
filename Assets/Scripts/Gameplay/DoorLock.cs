@@ -4,17 +4,18 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class DoorLock : MonoBehaviour
 {
     [SerializeField] private bool _isLock = true;
-    public bool IsLock {get => _isLock;}
     private XRGrabInteractable _doorStatut;
+
+    public bool IsLock {get => _isLock;}
+
     void Start()
     {
-        _doorStatut = this.GetComponent<XRGrabInteractable>();
+        _doorStatut = GetComponent<XRGrabInteractable>();
         if (_isLock)
         {
             _doorStatut.enabled = false;
         }
     }
-
 
     public void UnlockDoor()
     {
