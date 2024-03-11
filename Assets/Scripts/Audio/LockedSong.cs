@@ -1,13 +1,21 @@
+using System.Collections;
 using UnityEngine;
 
 public class LockedSong : MonoBehaviour
 {
     [SerializeField] private DoorLock _doorLock;
-    public void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.CompareTag("LeftHand") || collision.gameObject.CompareTag("RightHand"))
+        if ((other.gameObject.CompareTag("LeftHand") || other.gameObject.CompareTag("RightHand")) && _doorLock.IsLock)
         {
-            AudioManager.Instance.PlaySFX("DoorLocked");
+            StartCoroutine(SongCooldown());
         }
+    }
+
+    public IEnumerator SongCooldown()
+    {
+        AudioManager.Instance.PlaySFX("DoorLocked");
+        yield return new WaitForSeconds(1f);
     }
 }

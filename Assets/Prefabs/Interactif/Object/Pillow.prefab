@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8487059969957206683}
   - component: {fileID: 8033410018179562886}
   - component: {fileID: 8184656255765289323}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pillow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
