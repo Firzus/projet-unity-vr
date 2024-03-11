@@ -16,7 +16,8 @@ public class Countdown : MonoBehaviour
     private int _minutes = 0, _seconds = 0, _timer = 0;
     private bool _stressed = false, _isPlayingSFXSound = false;
 
-    public bool Awake { get; set; }
+    [SerializeField] private bool _awake = false;
+    public bool Awake { get { return _awake; } set { _awake = value; } }
 
     void Start()
     {
@@ -28,8 +29,9 @@ public class Countdown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Awake)
+        if (!_awake)
         {
+            _timerText.text = string.Format("{0:00}:{1:00}", _minutes, _seconds);
             return;
         }
         _sfx = BipSound(1.0f);
