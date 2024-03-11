@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3580616404394459540}
   - component: {fileID: 6598801887872112389}
   - component: {fileID: 6012325075733985494}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CanOld_Damaged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
