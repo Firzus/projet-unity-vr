@@ -2,41 +2,35 @@ using UnityEngine;
 
 public class ConsoleIntro : MonoBehaviour
 {
-    [SerializeField] private Material _apparitionMaterial;
-    private Material[] _originalMaterials;
-    private MeshRenderer[] _childrenRenderers;
+    [SerializeField] private Renderer _objectRenderer;
+    [SerializeField] private Material _appearMaterial;
+    [SerializeField] private GameObject _uiObject;
+    [SerializeField] private float _revealSpeed = 1.0f;
+    [SerializeField] private float _maxOffset = 5.0f;
+    [SerializeField] private float _offset = -1.0f;
 
-    void Start()
+    private Material _defaultMaterial;
+
+    private void Start()
     {
-        // Initialisation et stockage des matériaux originaux.
-        _childrenRenderers = GetComponentsInChildren<MeshRenderer>();
-        _originalMaterials = new Material[_childrenRenderers.Length];
-        for (int i = 0; i < _childrenRenderers.Length; i++)
-        {
-            _originalMaterials[i] = _childrenRenderers[i].material;
-        }
+        _defaultMaterial = _objectRenderer.material;
+        _objectRenderer.material = _appearMaterial;
 
-        // Application du matériau de dissolve.
-        ApplyDissolveMaterial();
+        // Inactive UI
+        _uiObject.SetActive(false);
     }
 
-    void ApplyDissolveMaterial()
+    private void Update()
     {
-        foreach (MeshRenderer renderer in _childrenRenderers)
+        if (_offset < _maxOffset)
         {
-            renderer.material = _apparitionMaterial;
+            _offset += Time.deltaTime * _revealSpeed;
+            _appearMaterial.SetFloat("_Offset", _offset);
         }
-
-        // Supposons que votre effet de dissolve est terminé après un certain délai.
-        // Utilisez Invoke, Coroutine, ou tout autre mécanisme pour déterminer quand l'effet est terminé et appeler RestoreOriginalMaterials.
-        Invoke(nameof(RestoreOriginalMaterials), 3f); // Exemple: restauration après 5 secondes.
-    }
-
-    void RestoreOriginalMaterials()
-    {
-        for (int i = 0; i < _childrenRenderers.Length; i++)
+        else if (_objectRenderer.material != _defaultMaterial)
         {
-            _childrenRenderers[i].material = _originalMaterials[i];
+            _objectRenderer.material = _defaultMaterial;
+            _uiObject.SetActive(true);
         }
     }
 }

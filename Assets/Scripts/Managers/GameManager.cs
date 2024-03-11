@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     // UI
     [SerializeField] private GameObject _titlePrefab;
+    [SerializeField] private GameObject _consolePrefab;
 
     private void Awake()
     {
@@ -37,10 +38,17 @@ public class GameManager : MonoBehaviour
         Instantiate(_titlePrefab, new Vector3(0, 6, 30), Quaternion.identity);
     }
 
+    IEnumerator ConsoleIntro()
+    {
+        yield return new WaitForSeconds(7);
+        Instantiate(_consolePrefab, new Vector3(0, 0, 1), Quaternion.identity);
+    }
+
     private void Start()
     {
         StartCoroutine(MusicIntro());
         StartCoroutine(TitleIntro());
+        StartCoroutine(ConsoleIntro());
     }
 
     public void Quit()
