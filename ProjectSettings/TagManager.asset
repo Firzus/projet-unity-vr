@@ -7,6 +7,8 @@ TagManager:
   - LeftHand
   - RightHand
   - PowerObject
+  - Key
+  - Pile
   layers:
   - Default
   - TransparentFX
