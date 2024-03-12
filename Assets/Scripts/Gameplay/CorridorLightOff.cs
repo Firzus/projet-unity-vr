@@ -17,7 +17,9 @@ public class CorridorLightOff : MonoBehaviour
 
     public void TurnOffLight()
     {
-        foreach(GameObject light in _lightOff)
+        
+        AudioManager.Instance.PlaySFX("CoupureCourant");
+        foreach (GameObject light in _lightOff)
         {
             light.GetComponentInChildren<Light>().enabled = false;
         }
