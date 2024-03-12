@@ -4517,13 +4517,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10043e1157239974d846d3d8789725dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectRenderer: {fileID: 7188463127182879858}
-  _appearMaterial: {fileID: 0}
-  _uiObject: {fileID: 3527728177495622588}
-  _revealSpeed: 0.8
-  _maxOffset: 1.4
-  _offset: -0.3
-  _defaultMaterial: {fileID: 0}
+  _objectRenderer: {fileID: 0}
+  _uiObject: {fileID: 0}
+  _revealSpeed: 1
+  _maxOffset: 5
+  _offset: -1
 --- !u!114 &914064351277839073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6586,9 +6584,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1218545101}
-        m_TargetAssemblyTypeName: MySceneManager, Assembly-CSharp
-        m_MethodName: ChangeScene
+      - m_Target: {fileID: 2440541341556084375}
+        m_TargetAssemblyTypeName: MenuUIManager, Assembly-CSharp
+        m_MethodName: SetScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
