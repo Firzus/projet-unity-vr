@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class Countdown : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro _timerText;
     [SerializeField] private float _remainingTimeInSeconds = 0.0f;
     [SerializeField] private int _remainingTimeInMinutes = 0;
     [SerializeField] private int _enterStressModeInSeconds = 0, _enterStressModeInMinutes = 0;
     [SerializeField] private InputActionProperty[] _inputAction;
 
+    private TextMeshPro _timerText;
     private IEnumerator _sfx;
     private int _minutes = 0, _seconds = 0, _timer = 0;
     private bool _stressed = false, _isPlayingSFXSound = false;
@@ -106,6 +106,7 @@ public class Countdown : MonoBehaviour
         AudioManager.Instance.PlaySFX("Explosion");
         _isPlayingSFXSound = false;
 
+        gameObject.transform.GetChild(2).gameObject.SetActive(true);
         yield return new WaitForSeconds(time);
         //Destroy all of the child
 
