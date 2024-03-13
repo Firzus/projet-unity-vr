@@ -6,7 +6,7 @@ public class FlashlightTuto : MonoBehaviour
 
     void Update()
     {
-        if(_pileToUse == null)
+        if(!_pileToUse)
         {
             Destroy(gameObject);
         }
