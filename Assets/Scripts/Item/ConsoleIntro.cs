@@ -10,6 +10,11 @@ public class ConsoleIntro : MonoBehaviour
 
     private bool _animationFinished = false;
 
+    private void Start()
+    {
+        _uiObject.SetActive(false);
+    }
+
     void Update()
     {
         if (!_animationFinished)

@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
-    void Awake()
+    private void Awake()
     {
         DontDestroyOnLoad(this);
 
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
         _title.SetActive(false);
         _console.SetActive(false);
@@ -56,17 +56,21 @@ public class GameManager : MonoBehaviour
         _console.SetActive(true);
     }
 
-    void Quit()
+    public void Quit()
     {
-        Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 
-    float GetTime()
+    public float GetTime()
     {
         return _mTimeLeft;
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -74,7 +78,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void LoadNextScene()
+    public void LoadNextScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
