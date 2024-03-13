@@ -9,6 +9,7 @@ TagManager:
   - PowerObject
   - Key
   - Pile
+  - Flashlight
   layers:
   - Default
   - TransparentFX

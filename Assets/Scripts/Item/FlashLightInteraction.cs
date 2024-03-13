@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -7,6 +8,7 @@ public class FlashLightInteraction : MonoBehaviour
     [SerializeField] private GameObject _light;
     [SerializeField] private bool _isOn = true;
     [SerializeField] private int _power = 100;
+    [SerializeField] private TextMeshPro _timerText;
     void Start()
     {
         if(!_isOn)
@@ -18,6 +20,7 @@ public class FlashLightInteraction : MonoBehaviour
         grabbable.activated.AddListener(UseFlashLight);
 
         StartCoroutine(FlashlightDurability());
+        UpdateText();
     }
 
     public void UseFlashLight(ActivateEventArgs arg)
@@ -48,8 +51,9 @@ public class FlashLightInteraction : MonoBehaviour
         if(_isOn && _power > 0)
         {
             _power--;
+            UpdateText();
 
-            if(_power <= 0)
+            if (_power <= 0)
             {
 
                 _isOn = false;
@@ -60,13 +64,18 @@ public class FlashLightInteraction : MonoBehaviour
         StartCoroutine(FlashlightDurability());
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void BoostPower(int batterie)
     {
-        if(collision.gameObject.CompareTag("Pile"))
+        _power += batterie;
+        if( _power > 100 )
         {
-            _power += 30;
-            AudioManager.Instance.PlaySFX("Click");
-            Destroy(collision.gameObject);
+            _power = 100;
         }
+        AudioManager.Instance.PlaySFX("Click");
+    }
+
+    public void UpdateText()
+    {
+        _timerText.text = _power.ToString();
     }
 }
