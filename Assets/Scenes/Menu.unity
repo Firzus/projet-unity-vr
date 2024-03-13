@@ -528,6 +528,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mHighlight: {fileID: 0}
+--- !u!1 &25605282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 780960306907881265, guid: e5ab9bc8120c5424195b3d5a67ebf1fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1126876967}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &152991101
 GameObject:
   m_ObjectHideFlags: 0
@@ -4661,7 +4667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754bd16bf782754489097f421c66250c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teleportationRay: {fileID: 578399845}
+  _teleportationRay: {fileID: 25605282}
   _leftActivate:
     m_UseReference: 1
     m_Action:
