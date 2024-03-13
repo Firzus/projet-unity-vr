@@ -5,7 +5,6 @@ public class CorridorLightOff : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _lightOff;
 
-
     public void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
@@ -17,8 +16,8 @@ public class CorridorLightOff : MonoBehaviour
 
     public void TurnOffLight()
     {
-        
         AudioManager.Instance.PlaySFX("CoupureCourant");
+
         foreach (GameObject light in _lightOff)
         {
             light.GetComponentInChildren<Light>().enabled = false;
