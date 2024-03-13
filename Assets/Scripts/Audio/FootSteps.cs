@@ -1,17 +1,16 @@
 using UnityEngine;
-using UnityEngine.XR;
 
 public class FootSteps : MonoBehaviour
 {
-    [SerializeField] private float _mWalkingSpeed;
+    [SerializeField] private float _walkingSpeed;
     [SerializeField] private Vector3 lastPosition;
-    [SerializeField] private AudioSource _mFootsteps;
+    [SerializeField] private AudioSource _footsteps;
 
     private void Update()
     {
         Vector3 velocity = (gameObject.transform.position - lastPosition) / Time.deltaTime;
 
-        if (velocity.magnitude > _mWalkingSpeed)
+        if (velocity.magnitude > _walkingSpeed)
         {
             Footsteps();
         }
@@ -25,11 +24,11 @@ public class FootSteps : MonoBehaviour
 
     public void Footsteps()
     {
-        _mFootsteps.enabled = true;
+        _footsteps.enabled = true;
     }
 
     public void Stopfootsteps()
     {
-        _mFootsteps.enabled = false;
+        _footsteps.enabled = false;
     }
 }
