@@ -3,16 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LeftHand
+  - RightHand
+  - PowerObject
+  - Key
+  - Pile
+  - Flashlight
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Body
   - Water
   - UI
-  - 
-  - 
+  - Interactable
+  - Grab Ignore Ray
   - 
   - 
   - 
