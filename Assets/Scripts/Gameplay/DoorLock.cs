@@ -11,7 +11,7 @@ public class DoorLock : MonoBehaviour
     void Start()
     {
         _doorStatut = GetComponent<XRGrabInteractable>();
-        if (_isLock && _doorStatut)
+        if (_isLock && _doorStatut != null)
         {
             _doorStatut.enabled = false;
         }

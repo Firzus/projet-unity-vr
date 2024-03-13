@@ -6,12 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class Countdown : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro _timerText;
+    [Header("Timer")]
     [SerializeField] private float _remainingTimeInSeconds = 0.0f;
     [SerializeField] private int _remainingTimeInMinutes = 0;
-    [SerializeField] private int _enterStressModeInSeconds = 0, _enterStressModeInMinutes = 0;
+    
+    [Header("Stress mode settings")]
+    [SerializeField] private int _enterStressModeInSeconds = 0;
+    [SerializeField] private int  _enterStressModeInMinutes = 0;
+
+    [Header("Input action to disable")]
     [SerializeField] private InputActionProperty[] _inputAction;
 
+    private TextMeshPro _timerText;
     private IEnumerator _sfx;
     private int _minutes = 0, _seconds = 0, _timer = 0;
     private bool _stressed = false, _isPlayingSFXSound = false;
@@ -38,7 +44,7 @@ public class Countdown : MonoBehaviour
         if (!_stressed)
         {
             CountdownMethod();
-            if (_timer == 0 && _remainingTimeInSeconds != 0 && !_isPlayingSFXSound)// play bip sound to 60 seconds
+            if (_timer == 0 && _remainingTimeInSeconds != 0 + 1 && !_isPlayingSFXSound)// play bip sound to 60 seconds
             {
                 StartCoroutine(_sfx);
             }
@@ -106,11 +112,11 @@ public class Countdown : MonoBehaviour
         AudioManager.Instance.PlaySFX("Explosion");
         _isPlayingSFXSound = false;
 
-        yield return new WaitForSeconds(time);
+        gameObject.transform.GetChild(2).gameObject.SetActive(true);
         //Destroy all of the child
-
         gameObject.transform.GetChild(0).gameObject.SetActive(false);
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        yield return new WaitForSeconds(time);
 
         SceneManager.LoadScene(0);
         StopCoroutine(_sfx);
