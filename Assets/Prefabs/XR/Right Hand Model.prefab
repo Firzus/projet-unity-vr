@@ -748,6 +748,8 @@ GameObject:
   - component: {fileID: 598674714198813348}
   - component: {fileID: 4768909709974584308}
   - component: {fileID: 3681714832059632111}
+  - component: {fileID: 8670820420516881563}
+  - component: {fileID: -6208361546608082815}
   m_Layer: 0
   m_Name: Right Hand Model
   m_TagString: Untagged
@@ -800,7 +802,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7180218613755579359}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44078370b3b5bd34dad1efcefe7ced78, type: 3}
   m_Name: 
@@ -832,6 +834,40 @@ MonoBehaviour:
     m_Reference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   handAnmiator: {fileID: 4768909709974584308}
+--- !u!114 &8670820420516881563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180218613755579359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a07bf2f0fa7bb41be5e22bfe8f5678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _handAnimator: {fileID: 4768909709974584308}
+  _triggerActionRef: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  _gripActionRef: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+--- !u!114 &-6208361546608082815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180218613755579359}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3bc33855ed9b947b9c09454c01a1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _handAnimator: {fileID: 4768909709974584308}
+  _triggerActionRef: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  _gripActionRef: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
 --- !u!1 &7584891390091416402
 GameObject:
   m_ObjectHideFlags: 0
