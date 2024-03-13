@@ -10,6 +10,7 @@ TagManager:
   - Key
   - Pile
   - Flashlight
+  - FingerTip
   layers:
   - Default
   - TransparentFX
