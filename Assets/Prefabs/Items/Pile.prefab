@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7625264738541460642}
   - component: {fileID: 4569751838831552674}
   - component: {fileID: 7111719848625807630}
+  - component: {fileID: 3164982072680394239}
+  - component: {fileID: -2815835726098060756}
   m_Layer: 6
   m_Name: Pile
   m_TagString: Pile
@@ -240,6 +242,39 @@ CapsuleCollider:
   m_Height: 1.6420782
   m_Direction: 1
   m_Center: {x: 0, y: 0.18389642, z: 0}
+--- !u!135 &3164982072680394239
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399630744831840309}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2.4914694
+  m_Center: {x: 0, y: -0.07544994, z: 0}
+--- !u!114 &-2815835726098060756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399630744831840309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708deee1d0b78854098f68c29c93bb52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1993723277745223593
 GameObject:
   m_ObjectHideFlags: 0
