@@ -7,8 +7,7 @@ public class PileInteractfFlashligth : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Flashlight"))
         {
-            other.GetComponent<FlashLightInteraction>().BoostPower(30);
-            Destroy(this.gameObject);
+            other.GetComponent<FlashLightInteraction>().BoostPower(30, this.gameObject);
         }
     }
 }

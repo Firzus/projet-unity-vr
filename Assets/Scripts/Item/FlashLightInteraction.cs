@@ -9,6 +9,8 @@ public class FlashLightInteraction : MonoBehaviour
     [SerializeField] private bool _isOn = true;
     [SerializeField] private int _power = 100;
     [SerializeField] private TextMeshPro _timerText;
+
+    public int Power { get =>  _power; set { _power = value;} }
     void Start()
     {
         if(!_isOn)
@@ -64,18 +66,23 @@ public class FlashLightInteraction : MonoBehaviour
         StartCoroutine(FlashlightDurability());
     }
 
-    public void BoostPower(int batterie)
+    public void BoostPower(int batterie, GameObject pile = null)
     {
         _power += batterie;
         if( _power > 100 )
         {
             _power = 100;
         }
+        if (pile != null)
+        {
+            Destroy(pile);
+        }
         AudioManager.Instance.PlaySFX("Click");
+        UpdateText();
     }
 
     public void UpdateText()
     {
-        _timerText.text = _power.ToString();
+        _timerText.text = _power.ToString()+"%";
     }
 }

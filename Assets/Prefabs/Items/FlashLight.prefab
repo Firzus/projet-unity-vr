@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 3840097529866209367}
   m_Layer: 6
   m_Name: FlashLight
-  m_TagString: Untagged
+  m_TagString: Flashlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
   _light: {fileID: 8503020396134013267}
   _isOn: 1
   _power: 100
-  _timerText: {fileID: 0}
+  _timerText: {fileID: 2084517086974175952}
 --- !u!1 &5881682512371985533
 GameObject:
   m_ObjectHideFlags: 0
