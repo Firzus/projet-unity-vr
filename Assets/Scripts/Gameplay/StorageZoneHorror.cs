@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class StorageZoneHorror : MonoBehaviour
@@ -14,14 +13,8 @@ public class StorageZoneHorror : MonoBehaviour
             _isActive = true;
             _ToDisable.SetActive(false);
             _ToEnable.SetActive(true);
-            StartCoroutine(SoundTime());
+            AudioManager.Instance.PlaySFX("MetalPipe");
         }
     }
 
-    private IEnumerator SoundTime()
-    {
-        AudioManager.Instance.PlaySFX("MetalPipe");
-        yield return new WaitForSeconds(3f);
-        Destroy(gameObject);
-    }
 }

@@ -5222,12 +5222,16 @@ MonoBehaviour:
     name: DoorLocked
   - clip: {fileID: 8300000, guid: 96d65cf5536d56741931471da8baa903, type: 3}
     name: Appear
-  - clip: {fileID: 8300000, guid: dfacdea20696d5f4b853d8ab2481c2a7, type: 3}
+  - clip: {fileID: 8300000, guid: a93c44763ccc397468460326ab4ffb16, type: 3}
     name: CoupureCourant
   - clip: {fileID: 8300000, guid: 7d4d70b60f58c4044becdabf4e6563f2, type: 3}
     name: Error
   - clip: {fileID: 8300000, guid: 02013f28be7d67c4ea599a6ecfa40147, type: 3}
     name: MetalPipe
+  - clip: {fileID: 8300000, guid: ea49356361e894a4fb912c9ddf093d28, type: 3}
+    name: HorrorStep
+  - clip: {fileID: 8300000, guid: d9a7bec11385476499172fe683bfb37a, type: 3}
+    name: CreepySound
   musicSource: {fileID: 641704012}
   sfxSource: {fileID: 862173264}
 --- !u!224 &159597957018672770
