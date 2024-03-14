@@ -64,7 +64,7 @@ public class OutlineInteractable : MonoBehaviour
     {
         if (!_valid)
             return;
-        if (_mHighlight.gameObject.GetComponent<XRGrabInteractable>().interactionLayers == InteractionLayerMask.GetMask("ray interaction", "direct interaction"))
+        if (_mHighlight.gameObject.GetComponent<XRGrabInteractable>().interactionLayers == InteractionLayerMask.GetMask("ray interaction", "direct interaction") || _mHighlight.gameObject.GetComponent<XRGrabInteractable>().interactionLayers == InteractionLayerMask.GetMask("ray interaction"))
         {
             if (_mHighlight.gameObject.GetComponent<Outline>() != null)
             {
