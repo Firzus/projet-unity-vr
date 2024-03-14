@@ -16,11 +16,13 @@ public class FadeScreen : MonoBehaviour
 
     public void FadeIn()
     {
+        GetComponent<MeshRenderer>().enabled = true;
         Fade(1, 0);
     }
 
     public void FadeOut() 
     {
+        GetComponent<MeshRenderer>().enabled = true;
         Fade(0, 1);
     }
 
@@ -51,5 +53,6 @@ public class FadeScreen : MonoBehaviour
         Color newColor2 = _mFadeColor;
         newColor2.a = alphaOut;
         _mRend.material.SetColor("_Color", newColor2);
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 }
