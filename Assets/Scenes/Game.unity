@@ -867,6 +867,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630654278}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &204101497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 204101498}
+  - component: {fileID: 204101499}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &204101498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204101497}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1080898671}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &204101499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204101497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1570d73c1901eab48b07e4a4a39dfd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &211004568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6913,6 +6957,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 204101498}
   - {fileID: 1306606401}
   - {fileID: 672061625}
   - {fileID: 1923102428}
@@ -7606,7 +7651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754bd16bf782754489097f421c66250c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teleportationRay: {fileID: 2025377652}
   _leftActivate:
     m_UseReference: 1
     m_Action:
@@ -7620,6 +7664,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
+  _teleportationRay: {fileID: 2025377652}
 --- !u!114 &1273365866
 MonoBehaviour:
   m_ObjectHideFlags: 0
