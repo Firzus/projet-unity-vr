@@ -3,30 +3,30 @@ using UnityEngine;
 
 public class OpenBook : MonoBehaviour
 {
-    [SerializeField] private GameObject _mCover;
-    [SerializeField] private HingeJoint _mHingeJoint;
-    [SerializeField] private AudioSource _mFlipsSound;
+    [SerializeField] private GameObject _cover;
+    [SerializeField] private HingeJoint _hingeJoint;
+    [SerializeField] private AudioSource _flipsSound;
 
     void Start()
     {
-        var myHinge = _mCover.GetComponent<HingeJoint>();
+        var myHinge = _cover.GetComponent<HingeJoint>();
 
         myHinge.useMotor = false;
     }
 
     public void OpenSesame()
     {
-        if (_mHingeJoint.useMotor == false)
+        if (_hingeJoint.useMotor == false)
         {
             StartCoroutine(PlayFlipSound());
         }
-        _mHingeJoint.useMotor = true;
+        _hingeJoint.useMotor = true;
     }
 
     IEnumerator PlayFlipSound()
     {
-        _mFlipsSound.Play();
+        _flipsSound.Play();
         yield return new WaitForSeconds(0.5f);
-        _mFlipsSound.Stop();
+        _flipsSound.Stop();
     }
 }

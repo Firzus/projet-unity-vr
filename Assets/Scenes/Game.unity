@@ -4183,9 +4183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5edd1575e3ac148b511806f0465e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mCover: {fileID: 532423137}
-  _mHingeJoint: {fileID: 532423144}
-  _mFlipsSound: {fileID: 1056809945}
+  _cover: {fileID: 532423137}
+  _hingeJoint: {fileID: 532423144}
+  _flipsSound: {fileID: 1056809945}
 --- !u!54 &532423143
 Rigidbody:
   m_ObjectHideFlags: 0

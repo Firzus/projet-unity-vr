@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Digicode : MonoBehaviour
 {
-    [SerializeField] private GameObject _mDoor;
+    [SerializeField] private GameObject _door;
 
     public void Granted()
     {
-        _mDoor.GetComponent<DoorLock>().UnlockDoor(); 
+        _door.GetComponent<DoorLock>().UnlockDoor(); 
     }
 }
