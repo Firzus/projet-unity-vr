@@ -24,8 +24,8 @@ public class MenuManager : MonoBehaviour
         else
         {
             StartCoroutine(MusicIntro(0));
-            StartCoroutine(TitleIntro(3));
-            StartCoroutine(ConsoleIntro(10));
+            StartCoroutine(TitleIntro(2));
+            StartCoroutine(ConsoleIntro(9));
         }
     }
 
