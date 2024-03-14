@@ -3,10 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
-    private bool _isBackToMenu = false;
-    public bool IsBackToMenu => _isBackToMenu;
-
     public static MainManager Instance { get; private set; }
+    public bool IsBackToMenu { get; set; }
 
     private void Awake()
     {
@@ -21,14 +19,8 @@ public class MainManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
-    private void Start()
-    {
-        if(!_isBackToMenu)
-        {
-            _isBackToMenu = true;
-        }
+        IsBackToMenu = false;
     }
 
     public void Quit()
