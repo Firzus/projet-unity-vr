@@ -2,28 +2,31 @@ using UnityEngine;
 
 public class MenuUIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _mHomePage;
-    [SerializeField] private GameObject _mSettings;
-    private string _sceneName;
+    [SerializeField] private GameObject _homePage;
+    [SerializeField] private GameObject _settings;
+
+    private void Start()
+    {
+        _homePage.SetActive(true);
+        _settings.SetActive(false);
+    }
 
     public void UIActive(GameObject UI)
     {
         UI.SetActive(true);
 
-        if (UI == _mSettings) 
+        if (UI == _settings) 
         {
-            _mHomePage.SetActive(false);
+            _homePage.SetActive(false);
         }
-        
-        if (UI == _mHomePage) 
+        else if (UI == _homePage) 
         {
-            _mSettings.SetActive(false);
+            _settings.SetActive(false);
         }
     }
 
     public void SetScene(string name)
     {
-        _sceneName = name;
-        MySceneManager.Instance.ChangeScene(_sceneName);
+        MySceneManager.Instance.ChangeScene(name);
     }
 }
