@@ -8,6 +8,7 @@ public class KeyUnlocking : MonoBehaviour
     {
         if(collider.gameObject.CompareTag("Key"))
         {
+            this.gameObject.GetComponent<LockedSong>().Song = false;
             _targetDoor.GetComponent<DoorLock>().UnlockDoor();
             AudioManager.Instance.PlaySFX("DoorUnlocking");
             Destroy(collider.gameObject);

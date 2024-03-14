@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class LockedSong : MonoBehaviour
 {
-    [SerializeField] private DoorLock _doorLock;
-
+    private bool _songOn = true;
+    public bool Song {  get => _songOn; set => _songOn = value; }
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.CompareTag("LeftHand") || other.gameObject.CompareTag("RightHand")) && _doorLock.IsLock)
+        if ((other.gameObject.CompareTag("LeftHand") || other.gameObject.CompareTag("RightHand")) && _songOn)
         {
             StartCoroutine(SongCooldown());
         }
