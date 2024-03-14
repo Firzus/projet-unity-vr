@@ -747,7 +747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 598674714198813348}
   - component: {fileID: 4768909709974584308}
-  - component: {fileID: 3681714832059632111}
+  - component: {fileID: 1257792983832205013}
   m_Layer: 0
   m_Name: Right Hand Model
   m_TagString: Untagged
@@ -793,7 +793,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3681714832059632111
+--- !u!114 &1257792983832205013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -802,36 +802,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7180218613755579359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44078370b3b5bd34dad1efcefe7ced78, type: 3}
+  m_Script: {fileID: 11500000, guid: e3a07bf2f0fa7bb41be5e22bfe8f5678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pinchAnimationAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Pinch Animation
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 5dd557ce-3fb4-45c4-bef9-0514a912a33b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
-  gripAnimationAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Grip Animation
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 323cb351-6ba6-4ad4-8291-c3b556338924
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
-  handAnmiator: {fileID: 4768909709974584308}
+  _handAnimator: {fileID: 4768909709974584308}
+  _triggerActionRef: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  _gripActionRef: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
 --- !u!1 &7584891390091416402
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,9 +960,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4136156783558173199}
+  - component: {fileID: 283107343240746301}
+  - component: {fileID: 929537817412486959}
+  - component: {fileID: 6527035498996302216}
   m_Layer: 0
   m_Name: hands:b_r_index_ignore
-  m_TagString: Untagged
+  m_TagString: FingerTip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1004,6 +985,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7472877857528752918}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &283107343240746301
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8475769958820003621}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &929537817412486959
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8475769958820003621}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Radius: 0.01
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6527035498996302216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8475769958820003621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6636d8b60207984d84a9a25c185694f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerActionReference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  _sphereCollider: {fileID: 929537817412486959}
 --- !u!1 &8615442711083255269
 GameObject:
   m_ObjectHideFlags: 0
