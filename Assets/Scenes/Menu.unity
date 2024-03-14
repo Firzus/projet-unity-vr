@@ -1327,7 +1327,7 @@ GameObject:
   - component: {fileID: 322184037}
   - component: {fileID: 322184038}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: Main Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1360,9 +1360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5f2dbcdb5221a43ba31b4d5cb55ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mTimeLeft: 0
-  _console: {fileID: 6416951420916587215}
-  _title: {fileID: 333760473860433316}
 --- !u!1 &428500185
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,6 +3134,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1126876967}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1150782910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150782911}
+  - component: {fileID: 1150782912}
+  m_Layer: 0
+  m_Name: MenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1150782911
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150782910}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150782912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150782910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269c3ca35c5dfc24aa77b87d1765afea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _console: {fileID: 6416951420916587215}
+  _title: {fileID: 333760473860433316}
 --- !u!1 &1169568598
 GameObject:
   m_ObjectHideFlags: 0
@@ -5084,7 +5127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754bd16bf782754489097f421c66250c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teleportationRay: {fileID: 25605282}
   _leftActivate:
     m_UseReference: 1
     m_Action:
@@ -5098,6 +5140,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
+  _teleportationRay: {fileID: 25605282}
 --- !u!114 &2095825734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5163,16 +5206,14 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 2b120d20a936f8d46ad21d965a41a4ce, type: 3}
     name: MenuTheme
   - clip: {fileID: 8300000, guid: e7ea9bf81399e25489e20006836e5580, type: 3}
-    name: GameTheme1
-  - clip: {fileID: 8300000, guid: ae3b7f507a5d36844bc784bdc9ffbdb1, type: 3}
-    name: GameTheme2
+    name: GameTheme
   sfxSounds:
   - clip: {fileID: 8300000, guid: 6174b9592631d1f43bab4a0d51b27d04, type: 3}
     name: Click
-  - clip: {fileID: 8300000, guid: 585aab94a93bd4742ab309ebb304ca14, type: 3}
-    name: ToggleFlashlight
   - clip: {fileID: 8300000, guid: b5a9ecf626d5662468c921eafbc9d8b0, type: 3}
     name: BeepSound
+  - clip: {fileID: 8300000, guid: 585aab94a93bd4742ab309ebb304ca14, type: 3}
+    name: ToggleFlashlight
   - clip: {fileID: 8300000, guid: 96c73bb4c36627c4aa7d507e386001f5, type: 3}
     name: Explosion
   - clip: {fileID: 8300000, guid: 7bdfbbc1730d8594a91ad0fe4da52ad6, type: 3}
@@ -6572,7 +6613,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 322184038}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -7368,8 +7409,9 @@ BoxCollider:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1218545100}
   - {fileID: 322184037}
+  - {fileID: 1218545100}
+  - {fileID: 1150782911}
   - {fileID: 2131350964}
   - {fileID: 1664491476}
   - {fileID: 1512296930}
