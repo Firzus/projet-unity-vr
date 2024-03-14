@@ -7,7 +7,7 @@ public class OutlineInteractable : MonoBehaviour
     [SerializeField] private Transform _mHighlight;
     private RaycastHit _mHit;
     private int _mTargetLayer = 6;
-    private bool _valid = false, _outlined = false, _onTriggered = false;
+    private bool _valid = false, _outlined = false; //_onTriggered = false;
 
     void Update()
     {
@@ -18,6 +18,9 @@ public class OutlineInteractable : MonoBehaviour
     {
         if (_outlined)
         {
+            CheckOutline();
+            if (!_valid)
+                return;
             _mHighlight.gameObject.GetComponent<Outline>().enabled = false;
             _outlined = false;
         }
