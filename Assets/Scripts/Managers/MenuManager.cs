@@ -17,13 +17,15 @@ public class MenuManager : MonoBehaviour
         {
             StartCoroutine(MusicIntro(5));
             StartCoroutine(TitleIntro(7));
-            StartCoroutine(ConsoleIntro(13));
+            StartCoroutine(ConsoleIntro(14));
+
+            MainManager.Instance.IsBackToMenu = true;
         }
         else
         {
             StartCoroutine(MusicIntro(0));
             StartCoroutine(TitleIntro(3));
-            StartCoroutine(ConsoleIntro(9));
+            StartCoroutine(ConsoleIntro(10));
         }
     }
 
