@@ -27,8 +27,7 @@ public class Countdown : MonoBehaviour
 
     void Start()
     {
-        if (_remainingTimeInMinutes > 0)
-            _remainingTimeInSeconds = _remainingTimeInMinutes * 60;
+        if (_remainingTimeInMinutes > 0) _remainingTimeInSeconds = _remainingTimeInMinutes * 60;
     }
 
     // Update is called once per frame
