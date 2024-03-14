@@ -17,7 +17,7 @@ public class Countdown : MonoBehaviour
     [Header("Input action to disable")]
     [SerializeField] private InputActionProperty[] _inputAction;
 
-    private TextMeshPro _timerText;
+    [SerializeField] TextMeshPro _timerText;
     private IEnumerator _sfx;
     private int _minutes = 0, _seconds = 0, _timer = 0;
     private bool _stressed = false, _isPlayingSFXSound = false;
@@ -27,7 +27,6 @@ public class Countdown : MonoBehaviour
 
     void Start()
     {
-        _timerText = transform.GetChild(1).GetComponent<TextMeshPro>();
         if (_remainingTimeInMinutes > 0)
             _remainingTimeInSeconds = _remainingTimeInMinutes * 60;
     }
