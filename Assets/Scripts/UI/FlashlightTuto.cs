@@ -17,7 +17,6 @@ public class FlashlightTuto : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
         if (other.gameObject.CompareTag("Player"))
         {
             StartCoroutine(ColorText());

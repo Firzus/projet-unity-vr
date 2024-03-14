@@ -22,6 +22,6 @@ public class DoorLock : MonoBehaviour
     {
         _isLock = false;
         _doorStatut.enabled = true;
-        Destroy(_doorWedge);
+        _doorWedge.SetActive(false);
     }
 }
