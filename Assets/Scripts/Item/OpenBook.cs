@@ -1,19 +1,32 @@
+using System.Collections;
 using UnityEngine;
 
 public class OpenBook : MonoBehaviour
 {
-    [SerializeField] private GameObject _mCover;
-    [SerializeField] private HingeJoint _mHingeJoint;
+    [SerializeField] private GameObject _cover;
+    [SerializeField] private HingeJoint _hingeJoint;
+    [SerializeField] private AudioSource _flipsSound;
 
     void Start()
     {
-        var myHinge = _mCover.GetComponent<HingeJoint>();
+        var myHinge = _cover.GetComponent<HingeJoint>();
 
         myHinge.useMotor = false;
     }
 
     public void OpenSesame()
     {
-        _mHingeJoint.useMotor = true;
+        if (_hingeJoint.useMotor == false)
+        {
+            StartCoroutine(PlayFlipSound());
+        }
+        _hingeJoint.useMotor = true;
+    }
+
+    IEnumerator PlayFlipSound()
+    {
+        _flipsSound.Play();
+        yield return new WaitForSeconds(0.5f);
+        _flipsSound.Stop();
     }
 }
