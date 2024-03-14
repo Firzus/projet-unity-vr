@@ -4766,6 +4766,8 @@ MonoBehaviour:
     name: Appear
   - clip: {fileID: 8300000, guid: dfacdea20696d5f4b853d8ab2481c2a7, type: 3}
     name: CoupureCourant
+  - clip: {fileID: 8300000, guid: 7d4d70b60f58c4044becdabf4e6563f2, type: 3}
+    name: Error
   musicSource: {fileID: 641704012}
   sfxSource: {fileID: 862173264}
 --- !u!224 &159597957018672770

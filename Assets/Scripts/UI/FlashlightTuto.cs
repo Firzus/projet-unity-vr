@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -14,11 +15,19 @@ public class FlashlightTuto : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.CompareTag("Player"))
         {
-            //_text
+            StartCoroutine(ColorText());
         }
+    }
+    public IEnumerator ColorText()
+    {
+        AudioManager.Instance.PlaySFX("Error");
+        _text.color = Color.red;
+        yield return new WaitForSeconds(3f);
+        _text.color = Color.white;
     }
 }
