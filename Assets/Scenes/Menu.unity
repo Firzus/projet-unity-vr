@@ -569,24 +569,7 @@ Transform:
   - {fileID: 1936528313}
   m_Father: {fileID: 1487467057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &152991101
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 152991102}
-  - component: {fileID: 152991103}
-  m_Layer: 0
-  m_Name: FootSteps
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &152991102
+--- !u!4 &152991102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8572567146180250114, guid: 3b6d910359f33c74bbe8a8f5e9fd8ca6,
     type: 3}
