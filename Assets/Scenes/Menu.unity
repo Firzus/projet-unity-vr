@@ -5295,6 +5295,8 @@ MonoBehaviour:
     name: HorrorStep
   - clip: {fileID: 8300000, guid: d9a7bec11385476499172fe683bfb37a, type: 3}
     name: CreepySound
+  - clip: {fileID: 8300000, guid: ace72d6cb23ffe44580f2898e818b30d, type: 3}
+    name: Electicity
   musicSource: {fileID: 641704012}
   sfxSource: {fileID: 862173264}
 --- !u!224 &159597957018672770
