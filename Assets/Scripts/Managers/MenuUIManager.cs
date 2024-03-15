@@ -29,4 +29,9 @@ public class MenuUIManager : MonoBehaviour
     {
         MySceneManager.Instance.ChangeScene(name);
     }
+
+    public void Quit()
+    {
+        MainManager.Instance.Quit();
+    }
 }
