@@ -2033,92 +2033,6 @@ MonoBehaviour:
     m_Reference: {fileID: -1636515391019944688, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_ButtonPressPoint: 0.5
---- !u!1001 &463750674
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1453397504}
-    m_Modifications:
-    - target: {fileID: 720576533848458005, guid: 412004ae33a347745b705f6da3517e68,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 720576533848458005, guid: 412004ae33a347745b705f6da3517e68,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 720576533848458005, guid: 412004ae33a347745b705f6da3517e68,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.015
-      objectReference: {fileID: 0}
-    - target: {fileID: 720576533848458005, guid: 412004ae33a347745b705f6da3517e68,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 720576533848458005, guid: 412004ae33a347745b705f6da3517e68,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 720576533848458005, guid: 412004ae33a347745b705f6da3517e68,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 720576533848458005, guid: 412004ae33a347745b705f6da3517e68,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 720576533848458005, guid: 412004ae33a347745b705f6da3517e68,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 720576533848458005, guid: 412004ae33a347745b705f6da3517e68,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 720576533848458005, guid: 412004ae33a347745b705f6da3517e68,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8534049746909205598, guid: 412004ae33a347745b705f6da3517e68,
-        type: 3}
-      propertyPath: m_Name
-      value: FadeScreen
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 412004ae33a347745b705f6da3517e68, type: 3}
---- !u!4 &463750675 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 720576533848458005, guid: 412004ae33a347745b705f6da3517e68,
-    type: 3}
-  m_PrefabInstance: {fileID: 463750674}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &463750676 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6019497676840563142, guid: 412004ae33a347745b705f6da3517e68,
-    type: 3}
-  m_PrefabInstance: {fileID: 463750674}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efcc8015257b7345943ac33fdd379fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &578399845
 GameObject:
   m_ObjectHideFlags: 0
@@ -3474,7 +3388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764325a99102f0a46a8b3f6daa852351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mFadeScreen: {fileID: 463750676}
 --- !u!1 &1264372142
 GameObject:
   m_ObjectHideFlags: 0
@@ -3883,8 +3796,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 463750675}
+  m_Children: []
   m_Father: {fileID: 1777955502}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1453397505
@@ -7524,9 +7436,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1218545101}
-        m_TargetAssemblyTypeName: MySceneManager, Assembly-CSharp
-        m_MethodName: ChangeScene
+      - m_Target: {fileID: 2440541341556084375}
+        m_TargetAssemblyTypeName: MenuUIManager, Assembly-CSharp
+        m_MethodName: SetScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

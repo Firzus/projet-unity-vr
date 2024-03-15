@@ -1,11 +1,11 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MySceneManager : MonoBehaviour
 {
-    [SerializeField] private FadeScreen _mFadeScreen;
-    private string _mSceneName;
+    private string _sceneName;
+    private AsyncOperation _sceneLoadOperation;
 
     public static MySceneManager Instance;
 
@@ -19,16 +19,29 @@ public class MySceneManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void ChangeScene(string SceneName)
+    public void ChangeScene(string sceneName)
     {
-        _mSceneName = SceneName;
-        StartCoroutine(GoToSceneRoutine());
-        SceneManager.LoadScene(_mSceneName, LoadSceneMode.Single);
+        _sceneName = sceneName;
+        StartCoroutine(ChangeSceneRoutine());
     }
 
-    IEnumerator GoToSceneRoutine()
+    IEnumerator ChangeSceneRoutine()
     {
-        _mFadeScreen.FadeOut();
-        yield return new WaitForSeconds(_mFadeScreen.FadeDuration());
+        // Précharge la scène en arrière-plan
+        _sceneLoadOperation = SceneManager.LoadSceneAsync(_sceneName, LoadSceneMode.Single);
+        // Empêche la scène de s'afficher immédiatement
+        _sceneLoadOperation.allowSceneActivation = false;
+
+        // Attend que la scène soit presque chargée (chargée à 90%)
+        while (!_sceneLoadOperation.isDone)
+        {
+            if (_sceneLoadOperation.progress >= 0.9f)
+            {
+                // La scène est prête à être affichée
+                _sceneLoadOperation.allowSceneActivation = true;
+            }
+
+            yield return null;
+        }
     }
 }
