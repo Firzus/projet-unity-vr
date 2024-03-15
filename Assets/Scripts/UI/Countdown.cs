@@ -116,7 +116,7 @@ public class Countdown : MonoBehaviour
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
         yield return new WaitForSeconds(time);
 
-        SceneManager.LoadScene(0);
+        MySceneManager.Instance.ChangeScene("Menu");
         StopCoroutine(_sfx);
     }
 
