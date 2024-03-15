@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class MySceneManager : MonoBehaviour
 {
-    [SerializeField] private string _mSceneName;
     [SerializeField] private FadeScreen _mFadeScreen;
+    private string _mSceneName;
 
     public static MySceneManager Instance;
 
