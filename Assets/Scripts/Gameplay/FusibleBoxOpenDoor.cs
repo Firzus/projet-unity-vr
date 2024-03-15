@@ -10,6 +10,7 @@ public class FusibleBoxOpenDoor : MonoBehaviour
         {
             _isActive = true;
             _doorToOpen.UnlockDoor();
+            AudioManager.Instance.PlaySFX("Electicity");
         }
     }
 }
